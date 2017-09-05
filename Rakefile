@@ -1,3 +1,5 @@
+Dir.chdir 'src' # Go into source dir.
+
 task :build do
   require 'tty/command'
 
