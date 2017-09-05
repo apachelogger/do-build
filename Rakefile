@@ -2,7 +2,7 @@ Dir.chdir 'src' # Go into source dir.
 
 task :build do
   if Dir.home.include?('jenkins') || Dir.home.include?('root')
-    local = File.resolve_path("#{Dir.pwd}/../.m2")
+    local = File.expand_path("#{Dir.pwd}/../.m2")
     m2 = "#{Dir.home}/.m2"
     FileUtils.mkpath(local, verbose: true) unless Dir.exist?(local)
     FileUtils.ln_s(local, m2, verbose: true)
