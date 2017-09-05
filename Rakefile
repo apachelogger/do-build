@@ -38,5 +38,5 @@ task :publish do
   payload[:hpi] = Faraday::UploadIO.new(v, 'application/binary')
   response = connection.post('/pluginManager/uploadPlugin', payload, headers)
   p response.status
-  raise 'expected status 302' unless response.status == '302'
+  raise 'expected status 302' unless response.status == 302
 end
