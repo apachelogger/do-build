@@ -8,6 +8,7 @@ node('master') {
     git branch: 'neon', url: 'https://github.com/apachelogger/digitalocean-plugin'
   }
   stage('build') {
+    sh 'ls -lah'
     sh '~/tooling/nci/contain.rb rake build'
   }
   stage('publish') {
