@@ -12,7 +12,7 @@ task :build do
 
   cmd = TTY::Command.new
   cmd.run 'apt update -y'
-  cmd.run 'apt install -y maven'
+  cmd.run 'apt install -y maven openjdk-8-jdk-headless'
   cmd.run 'mvn clean install -DskipTests=true -U'
 end
 
