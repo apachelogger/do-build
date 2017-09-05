@@ -36,5 +36,7 @@ task :publish do
   v = "#{Dir.pwd}/target/digitalocean-plugin.hpi"
   payload = {}
   payload[:hpi] = Faraday::UploadIO.new(v, 'application/binary')
-  p connection.post('/pluginManager/uploadPlugin', payload, headers)
+  response = connection.post('/pluginManager/uploadPlugin', payload, headers)
+  p response.status
+  raise 'expected status 302' unless response.status == '302'
 end
