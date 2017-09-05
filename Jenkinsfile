@@ -5,7 +5,10 @@ env.PWD_BIND = '/workspace'
 
 node('master') {
   stage('clone') {
+    checkout scm
+    sh 'ls -lah'
     git branch: 'neon', url: 'https://github.com/apachelogger/digitalocean-plugin'
+    sh 'ls -lah'
   }
   stage('build') {
     sh 'ls -lah'
