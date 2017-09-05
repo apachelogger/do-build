@@ -1,5 +1,7 @@
 // env.MAVEN_OPTS = "-Dmaven.repo.local=/workspace"
-
+env.DIST = 'xenial'
+env.TYPE = 'user'
+env.PWD_BIND = '/workspace'
 
 node('master') {
   stage('clone') {
