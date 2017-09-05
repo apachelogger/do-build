@@ -7,7 +7,7 @@ node('master') {
   wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
     stage('clone') {
       checkout scm
-      sh 'mkdir src'
+      sh '[ -d src ] || mkdir src'
       dir('src') {
         git branch: 'neon', url: 'https://github.com/apachelogger/digitalocean-plugin'
       }
