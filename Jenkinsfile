@@ -3,8 +3,8 @@ env.DIST = 'xenial'
 env.TYPE = 'user'
 env.PWD_BIND = '/workspace'
 
-wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
-  node('master') {
+node('master') {
+  wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
     stage('clone') {
       checkout scm
       sh 'mkdir src'
