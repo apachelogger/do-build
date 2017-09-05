@@ -1,13 +1,13 @@
-if Dir.home.include?('jenkins')
-  local = "#{Dir.pwd}/.m2"
-  m2 = "#{Dir.home}/.m2"
-  FileUtils.mkpath(local, verbose: true) unless Dir.exist?(local)
-  FileUtils.ln_s(local, m2, verbose: true)
-end
-
 Dir.chdir 'src' # Go into source dir.
 
 task :build do
+  if Dir.home.include?('jenkins') || Dir.home.include?('root')
+    local = File.resolve_path("#{Dir.pwd}/../.m2")
+    m2 = "#{Dir.home}/.m2"
+    FileUtils.mkpath(local, verbose: true) unless Dir.exist?(local)
+    FileUtils.ln_s(local, m2, verbose: true)
+  end
+
   require 'tty/command'
 
   cmd = TTY::Command.new
