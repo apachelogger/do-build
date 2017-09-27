@@ -1,5 +1,9 @@
 Dir.chdir 'src' # Go into source dir.
 
+system 'git describe'
+system 'git log -1'
+system 'git branch'
+
 task :build do
   if Dir.home.include?('jenkins') || Dir.home.include?('root')
     local = File.expand_path("#{Dir.pwd}/../.m2")
