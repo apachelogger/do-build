@@ -9,7 +9,7 @@ node('master') {
       checkout scm
       sh '[ -d src ] || mkdir src'
       dir('src') {
-        git branch: 'neon', url: 'https://github.com/apachelogger/digitalocean-plugin'
+        git branch: 'neon2', url: 'https://github.com/apachelogger/digitalocean-plugin'
       }
     }
     stage('build') {
